@@ -496,10 +496,10 @@ class GeminiClient:
         # --- 后处理 ---
 
         # 注入搜索提示
-        if settings.search["search_mode"] and model and model.endswith("-search"):
+        if settings.search["search_prompt"] and settings.search["search_mode"] and model and model.endswith("-search"):
             gemini_history.insert(
                 len(gemini_history) - 2,
-                {"role": "user", "parts": [{"text": settings.search["search_prompt"]}]},
+                {"role": "user", "parts": [{"text": c}]},
             )
 
         # 注入随机字符串
