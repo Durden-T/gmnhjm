@@ -509,7 +509,7 @@ class GeminiClient:
         if settings.search["search_prompt"] and settings.search["search_mode"] and model and model.endswith("-search"):
             gemini_history.insert(
                 len(gemini_history) - 2,
-                {"role": "user", "parts": [{"text": c}]},
+                {"role": "user", "parts": [{"text": settings.search["search_prompt"]}]},
             )
 
         # 注入随机字符串
